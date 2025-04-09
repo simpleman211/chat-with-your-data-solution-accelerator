@@ -1,7 +1,7 @@
 name: cwydsa
 services:
   web:
-    image: 21wave/rag-frontend-chatbot
+    image: 21wave/rag-frontend-chatbot:lastest
     ports:
       - "8080:80"
     env_file:
@@ -10,7 +10,7 @@ services:
       - path: $AZD_ENV_FILE
         required: false
   admin:
-    image: 21wave/rag-admin-chatbot
+    image: 21wave/rag-admin-chatbot:lastest
     ports:
       - "8081:80"
     environment:
@@ -22,7 +22,7 @@ services:
       - path: $AZD_ENV_FILE
         required: false
   backend:
-    image: 21wave/rag-backend-chatbot
+    image: 21wave/rag-backend-chatbot:lastest
     ports:
       - "8082:80"
     environment:
