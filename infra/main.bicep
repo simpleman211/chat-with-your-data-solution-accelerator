@@ -320,7 +320,7 @@ var keyVaultName = 'kv-${resourceToken}'
 var baseUrl = 'https://raw.githubusercontent.com/simpleman211/chat-with-your-data-solution-accelerator/main/'
 
 var appversion = 'latest' // Update GIT deployment branch
-var registryName = 'cwydcontainerreg' // Update Registry name
+var registryName = 'kietcontainer' // Update Registry name
 
 var openAIFunctionsSystemPrompt = '''You help employees to navigate only private information sources.
     You must prioritize the function call over your general knowledge for any question by calling the search_documents function.
@@ -706,7 +706,7 @@ module web_docker './app/web.bicep' = if (hostingModel == 'container') {
     name: '${websiteName}-docker'
     location: location
     tags: union(tags, { 'azd-service-name': 'web-docker' })
-    dockerFullImageName: '${registryName}.azurecr.io/rag-webapp:${appversion}'
+    dockerFullImageName: '${registryName}.azurecr.io/rag-frontend-chatbot:${appversion}'
     appServicePlanId: hostingplan.outputs.name
     applicationInsightsName: monitoring.outputs.applicationInsightsName
     healthCheckPath: '/api/health'
@@ -916,7 +916,7 @@ module adminweb_docker './app/adminweb.bicep' = if (hostingModel == 'container')
     name: '${adminWebsiteName}-docker'
     location: location
     tags: union(tags, { 'azd-service-name': 'adminweb-docker' })
-    dockerFullImageName: '${registryName}.azurecr.io/rag-adminwebapp:${appversion}'
+    dockerFullImageName: '${registryName}.azurecr.io/rag-admin-chatbot:${appversion}'
     appServicePlanId: hostingplan.outputs.name
     applicationInsightsName: monitoring.outputs.applicationInsightsName
     azureOpenAIName: openai.outputs.name
@@ -1131,7 +1131,7 @@ module function_docker './app/function.bicep' = if (hostingModel == 'container')
     name: '${functionName}-docker'
     location: location
     tags: union(tags, { 'azd-service-name': 'function-docker' })
-    dockerFullImageName: '${registryName}.azurecr.io/rag-backend:${appversion}'
+    dockerFullImageName: '${registryName}.azurecr.io/rag-backend-chatbot:${appversion}'
     appServicePlanId: hostingplan.outputs.name
     applicationInsightsName: monitoring.outputs.applicationInsightsName
     azureOpenAIName: openai.outputs.name
