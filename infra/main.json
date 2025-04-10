@@ -3589,7 +3589,7 @@
             "value": "[union(variables('tags'), createObject('azd-service-name', 'web-docker'))]"
           },
           "dockerFullImageName": {
-            "value": "[format('{0}.azurecr.io/rag-webapp:{1}', variables('registryName'), variables('appversion'))]"
+            "value": "[format('{0}.azurecr.io/rag-frontend-chatbot:{1}', variables('registryName'), variables('appversion'))]"
           },
           "appServicePlanId": {
             "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, variables('rgName')), 'Microsoft.Resources/deployments', parameters('hostingPlanName')), '2022-09-01').outputs.name.value]"
@@ -5492,7 +5492,7 @@
             "value": "[union(variables('tags'), createObject('azd-service-name', 'adminweb-docker'))]"
           },
           "dockerFullImageName": {
-            "value": "[format('{0}.azurecr.io/rag-adminwebapp:{1}', variables('registryName'), variables('appversion'))]"
+            "value": "[format('{0}.azurecr.io/rag-admin-chatbot:{1}', variables('registryName'), variables('appversion'))]"
           },
           "appServicePlanId": {
             "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, variables('rgName')), 'Microsoft.Resources/deployments', parameters('hostingPlanName')), '2022-09-01').outputs.name.value]"
@@ -9441,7 +9441,7 @@
             "value": "[union(variables('tags'), createObject('azd-service-name', 'function-docker'))]"
           },
           "dockerFullImageName": {
-            "value": "[format('{0}.azurecr.io/rag-backend:{1}', variables('registryName'), variables('appversion'))]"
+            "value": "[format('{0}.azurecr.io/rag-backend-chatbot:{1}', variables('registryName'), variables('appversion'))]"
           },
           "appServicePlanId": {
             "value": "[reference(extensionResourceId(format('/subscriptions/{0}/resourceGroups/{1}', subscription().subscriptionId, variables('rgName')), 'Microsoft.Resources/deployments', parameters('hostingPlanName')), '2022-09-01').outputs.name.value]"
